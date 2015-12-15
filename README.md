@@ -6,3 +6,6 @@ Requisitos:
 1. Instalar matplotlib:
 - pip install matplotlib
 - apt-get install python-matplotlib
+
+
+TODO Intentar paralelizar los cálculos.
