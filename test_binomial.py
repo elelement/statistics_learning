@@ -51,7 +51,7 @@ def main():
     bX = []
     bY = []
     total = 500
-    for x in xrange(1, total):
+    for x in xrange(0, total):
         aux = f_binomial(total, x, p)
         if(aux > 0.0000000000001): # Filtro a mano que pongo para quitar valores muy próximos al cero que no aportan nada
             bX.append(x)
@@ -69,7 +69,7 @@ def main():
     bX2 = []
     bY2 = []
     aux = 0
-    for x in xrange(1, total):
+    for x in xrange(0, total):
         aux += f_binomial(total, x, p)
         if(aux < 0.99999):
             bX2.append(x)

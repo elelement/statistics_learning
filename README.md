@@ -7,5 +7,6 @@ Requisitos:
 - pip install matplotlib
 - apt-get install python-matplotlib
 
+> Implementada distribución binomial
 
 TODO Intentar paralelizar los cálculos.
