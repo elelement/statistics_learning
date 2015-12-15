@@ -46,12 +46,13 @@ def main():
     # secundarios si elige 100 pacientes al azar?
     print mean(100, p)
 
-    # Dibujar la distribución binomial asociada al ejercio 2 para x = {0, 1, 2,..., 500 }
+    # Dibujar la función de probabilidad asociada al ejercio 2 para x = {0, 1, 2,..., 500 }
     # Es decir, pongamos un valor alto de pacientes = 500
     bX = []
     bY = []
-    for x in xrange(0, 500):
-        aux = f_binomial(500, x, p)
+    total = 100
+    for x in xrange(0, total):
+        aux = f_binomial(total, x, p)
         if(aux > 0.0000000000001): # Filtro a mano que pongo para quitar valores muy próximos al cero que no aportan nada
             bX.append(x)
             bY.append(aux)
@@ -59,8 +60,27 @@ def main():
     print bX
     print bY
 
-    # Y, finalmente, pintamos la gráfica
+    # Generamos la gráfica
     plt.plot(bX, bY)
+    
+    # Y ahora la función de DISTRIBUCIÓN de la probabilidad
+    # Añade un segundo for, para hacer la suma de la suma por cada X, P(X<=N)
+    # Después de todo, lo que se quiere es la probabilidad de que haya al menos N, no N exactos.
+    bX2 = []
+    bY2 = []
+    for y in xrange(0, total):
+        aux = 0
+        for x in xrange(0, y):
+            aux += f_binomial(y, x, p)
+        if(aux < 0.9999999):
+            bX2.append(y)
+            bY2.append(aux) 
+        
+    print bX2
+    print bY2
+
+    # Y, finalmente, pintamos las gráficas
+    plt.plot(bX2, bY2)
     plt.show()
 
 if __name__ == "__main__":

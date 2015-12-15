@@ -1,4 +1,4 @@
 statistics_learning.sublime-workspace
-*.pyc
+*/*.pyc
 *~
 build*
