@@ -51,11 +51,14 @@ def main():
     bX = []
     bY = []
     for x in xrange(0, 500):
-        bX.append(x)
-        bY.append(f_binomial(500, x, p))
+        aux = f_binomial(500, x, p)
+        if(aux > 0.0000000000001): # Filtro a mano que pongo para quitar valores muy próximos al cero que no aportan nada
+            bX.append(x)
+            bY.append(aux)
         
     print bX
     print bY
+
     # Y, finalmente, pintamos la gráfica
     plt.plot(bX, bY)
     plt.show()
