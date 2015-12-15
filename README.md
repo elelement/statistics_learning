@@ -7,6 +7,13 @@ Requisitos:
 - pip install matplotlib
 - apt-get install python-matplotlib
 
-> Implementada distribución binomial
+### Distribuciones
 
-TODO Intentar paralelizar los cálculos.
+- [x] Probabilidad
+- [x] Binomial
+- [ ] Normal
+- [ ] Poisson
+- [ ] Otras
+
+### TODO
+* Intentar paralelizar todos los cálculos independientes.

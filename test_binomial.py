@@ -52,13 +52,7 @@ def main():
     bX = []
     bY = []
     total = 500
-    for x in xrange(0, total):
-        aux = f_binomial(total, x, p)
-        if(aux > 0.0000000000001): # Filtro a mano que pongo para quitar valores muy próximos al cero que no aportan nada
-            bX.append(x)
-            bY.append(aux)
-        
-    print bX
+    bX, bY = probability(total, p)
     print bY
 
     # Generamos la gráfica
