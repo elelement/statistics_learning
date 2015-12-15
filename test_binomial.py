@@ -3,6 +3,7 @@
 
 from utils.calculus import *
 import math
+import matplotlib.pyplot as plt
 
 # Ejercicios obtenidos de 'http://www.vitutor.com/pro/3/b_3.html'
 
@@ -45,6 +46,19 @@ def main():
     # secundarios si elige 100 pacientes al azar?
     print mean(100, p)
 
+    # Dibujar la distribución binomial asociada al ejercio 2 para x = {0, 1, 2,..., 500 }
+    # Es decir, pongamos un valor alto de pacientes = 500
+    bX = []
+    bY = []
+    for x in xrange(0, 500):
+        bX.append(x)
+        bY.append(f_binomial(500, x, p))
+        
+    print bX
+    print bY
+    # Y, finalmente, pintamos la gráfica
+    plt.plot(bX, bY)
+    plt.show()
 
 if __name__ == "__main__":
     main()
