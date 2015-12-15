@@ -2,6 +2,7 @@
 #!/usr/bin/env python
 
 from utils.calculus import *
+from utils.distributions import *
 import math
 import matplotlib.pyplot as plt
 
@@ -66,15 +67,7 @@ def main():
     # Y ahora la función de DISTRIBUCIÓN de la probabilidad
     # Añade un segundo for, para hacer la suma de la suma por cada X, P(X<=N)
     # Después de todo, lo que se quiere es la probabilidad de que haya al menos N, no N exactos.
-    bX2 = []
-    bY2 = []
-    aux = 0
-    for x in xrange(0, total):
-        aux += f_binomial(total, x, p)
-        if(aux < 0.99999):
-            bX2.append(x)
-            bY2.append(aux) 
-        
+    bX2, bY2 = binomial(total, p)
     print bX2
     print bY2
 
