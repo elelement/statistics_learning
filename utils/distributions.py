@@ -42,3 +42,13 @@ def probability(n, p):
         bY.append(f_binomial(n, x, p))
         
     return (bX, bY)
+
+def normal(n, mu, sigma):
+    bX = []
+    bY = []
+    aux = 0
+    for x in xrange(0, n):
+        aux += f_gauss(mu, sigma, x)
+        bX.append(x)
+        bY.append(aux)
+    return (bX, bY) # Devolvemos una tupla con las dos listas
