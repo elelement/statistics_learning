@@ -1,6 +1,7 @@
 __author__ = 'jmcabrera'
 
 from calculus import *
+import concurrent.futures
 
 def binomial(n, p):
     bX = []
@@ -10,6 +11,27 @@ def binomial(n, p):
         aux += f_binomial(n, x, p)
         bX.append(x)
         bY.append(aux)
+    return (bX, bY) # Devolvemos una tupla con las dos listas
+
+def binomial_p(n, p, workers):
+    futureQ = []
+    bX = []
+    bY = []
+    aux = 0
+    executor = concurrent.futures.ThreadPoolExecutor(max_workers=workers)
+    for x in xrange(0, n):
+        bX.append(x)
+        futureQ.append(executor.submit(f_binomial, n, x, p))
+
+    for future in futureQ:
+        try:
+            aux += future.result()
+        except Exception as exc:
+            print('%r generated an exception: %s' % (x, exc))
+            raise
+        else:
+            bY.append(aux)
+
     return (bX, bY) # Devolvemos una tupla con las dos listas
 
 def probability(n, p):

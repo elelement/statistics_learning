@@ -5,6 +5,7 @@ from utils.calculus import *
 from utils.distributions import *
 import math
 import matplotlib.pyplot as plt
+import time
 
 # Ejercicios obtenidos de 'http://www.vitutor.com/pro/3/b_3.html'
 
@@ -51,9 +52,8 @@ def main():
     # Es decir, pongamos un valor alto de pacientes = 500
     bX = []
     bY = []
-    total = 500
+    total = 1000
     bX, bY = probability(total, p)
-    print bY
 
     # Generamos la gráfica
     plt.plot(bX, bY)
@@ -61,9 +61,18 @@ def main():
     # Y ahora la función de DISTRIBUCIÓN de la probabilidad
     # Añade un segundo for, para hacer la suma de la suma por cada X, P(X<=N)
     # Después de todo, lo que se quiere es la probabilidad de que haya al menos N, no N exactos.
+    start = time.time()
     bX2, bY2 = binomial(total, p)
-    print bX2
-    print bY2
+    end = time.time()
+    print "Método serial función de distribución binomial"
+    print end - start
+
+    # Probamos su versión paralelizada para ver la diferencia de tiempo
+    start = time.time()
+    bX2, bY2 = binomial_p(total, p, 3)
+    end = time.time()
+    print "Método paralelo función de distribución binomial"
+    print end - start
 
     # Y, finalmente, pintamos las gráficas
     plt.plot(bX2, bY2)
