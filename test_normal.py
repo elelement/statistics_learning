@@ -4,7 +4,6 @@
 from utils.calculus import *
 from utils.distributions import *
 import math
-import matplotlib.pyplot as plt
 import time
 
 # Ejercicios obtenidos de 'http://www.vitutor.com/pro/3/b_3.html'
@@ -21,28 +20,28 @@ def main():
     bY = []
     total = 500
     mu = 70.0
-    sigma = 3.
+    sigma = 3.0
 
     # Entre 60 kg y 75 kg
-    # p[60 < Z <= 75] = p()
+    # Tipificamos las variables
+    # Ojo! Una distribución normal estándar se expresa mediante N(µ, σ) = N(0, 1)
+    #
+    # p[60 < X <= 75] = p(z1 < Z <= z2)
     z1 = f_typify(mu, sigma, 60.0)
     z2 = f_typify(mu, sigma, 75.0)
+    
+    # Siguiendo la tabla p(Z > z1) = 1 - p(Z <= z1) = 1 - p(1.67)
+    p1 = 1 - 0.9525
 
+    # Siguiendo la tabla p(Z <= z2) = p(3.33)
+    p2 = 0.9996
 
-    print z1
-    print z2
-    start = time.time()
-    bX, bY = normal(total, 70, 3)
-    end = time.time()
-    print "Tiempo total de cálculo:"
-    print end - start
+    print "Ejercicio 4:"
+    print (p2 - p1) * 500
 
-    # Φ(k) = P(z ≤ k)
+    z3 = f_typify(mu, sigma, 90)
+    #print z3
 
-
-    # Y, finalmente, pintamos las gráficas
-    plt.plot(bX, bY)
-    plt.show()
 
 if __name__ == "__main__":
     main()

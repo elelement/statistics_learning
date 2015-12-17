@@ -74,5 +74,8 @@ Para poder utilizar la tabla tenemos que transformar la variable X que sigue una
 
 ![tipificar](http://www.vitutor.co.uk/pro/5/images/10.gif)
 
+Usaremos como referencia la tabla de áreas encerradas baja la curva normal hasta un valor positivo de Z
+![tabla_normal](http://www.vadenumeros.es/imagenes/sociales/tabla-normal-1.gif)
+
 ### TODO
 * Intentar paralelizar todos los cálculos independientes.

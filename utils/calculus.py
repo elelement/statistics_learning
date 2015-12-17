@@ -20,7 +20,7 @@ def f_binomial(n, k, p):
 
 ## Función de densidad: curva de Gauss
 def f_gauss(mu, sigma, x):
-    return (1/(sigma * math.sqrt(2 * math.pi))) * math.exp(-0.5 * math.pow((x - mu)/sigma, 2))
+    return (math.exp(-0.5 * math.pow((x - mu)/sigma, 2)) / (sigma * math.sqrt(2 * math.pi)))
 
 # TODO Tipificar variable
 
