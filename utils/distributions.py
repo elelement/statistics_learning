@@ -46,9 +46,7 @@ def probability(n, p):
 def normal(n, mu, sigma):
     bX = []
     bY = []
-    aux = 0
-    for x in xrange(0, n):
-        aux += f_gauss(mu, sigma, x)
+    for x in n:
         bX.append(x)
-        bY.append(aux)
+        bY.append(f_gauss(mu, sigma, x))
     return (bX, bY) # Devolvemos una tupla con las dos listas

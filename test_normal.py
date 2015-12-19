@@ -5,6 +5,8 @@ from utils.calculus import *
 from utils.distributions import *
 import math
 import time
+import matplotlib.pyplot as plt
+import numpy as np
 
 # Ejercicios obtenidos de 'http://www.vitutor.com/pro/3/b_3.html'
 
@@ -42,6 +44,13 @@ def main():
     z3 = f_typify(mu, sigma, 90)
     #print z3
 
+    # Dibujamos una distribución normal. Sacamos los valores utilizando numpy
+    dn = np.random.normal(mu, sigma, 100)
+    bX, bY = normal(dn, mu, sigma)
+
+    #plt.plot(bX, bY)
+    plt.plot(bX, bY, 'go-', label='line 1', linewidth=2)
+    plt.show()
 
 if __name__ == "__main__":
     main()
